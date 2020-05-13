@@ -30,4 +30,10 @@ export interface ITodo {
     finished: boolean;
     userRef: FirebaseFirestoreTypes.DocumentReference;
   }[];
+  startAt: number | string;
+  endAt: number | string | null;
+}
+
+export interface ITodos {
+  [key: string]: ITodo[];
 }
