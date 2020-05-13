@@ -1,10 +1,11 @@
 import {FirebaseFirestoreTypes} from '@react-native-firebase/firestore';
+import {IEvent} from 'app/interfaces/IEvent';
 
 export const getDataByFirebaseRefs = async (
   refs?:
     | FirebaseFirestoreTypes.DocumentReference
     | FirebaseFirestoreTypes.DocumentReference[],
-) => {
+): Promise<any> => {
   if (!Array.isArray(refs)) {
     const document = await refs!.get();
     return document.data();
