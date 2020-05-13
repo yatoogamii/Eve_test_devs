@@ -9,7 +9,7 @@ import moment from 'moment';
 import {IEvent, IEvents, ITodo, ITodos} from '../interfaces/IEvent';
 
 // tools
-import {getDataByFirebaseRef} from './getDataByFirebaseRef';
+import {getDataByFirebaseRefs} from './getDataByFirebaseRefs';
 
 export const sortAndGroupEventsAndTodosByDate = async (
   events: IEvent[],
@@ -27,11 +27,7 @@ export const sortAndGroupEventsAndTodosByDate = async (
 const getAllTodos = async (events: IEvent[]) => {
   const allTodos = await Promise.all(
     cloneDeep(events).map(async (event) => {
-      return await Promise.all(
-        event.todos.map(async (todo) => {
-          return await getDataByFirebaseRef(todo);
-        }),
-      );
+      return await getDataByFirebaseRefs(event.todosRef);
     }),
   );
 
