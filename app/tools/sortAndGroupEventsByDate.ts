@@ -4,9 +4,7 @@ import groupBy from 'lodash/groupBy';
 // interfaces
 import {IEvent, IEvents} from '../interfaces/IEvent';
 
-export const sortAndGroupEventsByDate = async (
-  events: IEvent[],
-): Promise<IEvents> => {
+export const sortAndGroupEventsByDate = (events: IEvent[]): IEvents => {
   return groupBy(events, getDate);
 };
 

@@ -28,7 +28,7 @@ export const Home = () => {
                 allEvents.push(events.data());
             });
 
-            setAllEvents(await sortAndGroupEventsByDate(allEvents));
+            setAllEvents(sortAndGroupEventsByDate(allEvents));
         } catch (error) {
             console.error(error);
         }
