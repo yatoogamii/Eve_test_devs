@@ -8,10 +8,14 @@ import moment from 'moment';
 // interfaces
 import {IEvent, IEvents, ITodo, ITodos} from '../interfaces/IEvent';
 
+// tools
+import {getDataByFirebaseRef} from './getDataByFirebaseRef';
+
 export const sortAndGroupEventsAndTodosByDate = async (
   events: IEvent[],
 ): Promise<IEvents & ITodos> => {
-  const allTodos: ITodo[] = await getTodos(events);
+  const allTodos = await getAllTodos(events);
+
   const allTodosAndEvents: Array<IEvent | ITodo> | any = [
     ...allTodos,
     ...events,
@@ -20,19 +24,18 @@ export const sortAndGroupEventsAndTodosByDate = async (
   return formatUnixTimestamps(groupBy(allTodosAndEvents, getDate));
 };
 
-const getTodos = async (events: IEvent[]): Promise<ITodo[] | any[]> => {
-  const todos = await Promise.all(
-    cloneDeep(events).map(async (event: IEvent) => {
+const getAllTodos = async (events: IEvent[]) => {
+  const allTodos = await Promise.all(
+    cloneDeep(events).map(async (event) => {
       return await Promise.all(
-        event.todos.map(async (todoRef) => {
-          const todoDoc = await todoRef.get();
-          return todoDoc.data();
+        event.todos.map(async (todo) => {
+          return await getDataByFirebaseRef(todo);
         }),
       );
     }),
   );
 
-  return todos.flat();
+  return allTodos.flat();
 };
 
 const getDate = (eventOrTodo: IEvent | ITodo) => {
