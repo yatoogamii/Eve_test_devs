@@ -11,8 +11,8 @@ export interface IEvent {
   };
   participants: FirebaseFirestoreTypes.DocumentReference[];
   needCar: boolean;
-  startAt: number;
-  endAt: number | null;
+  startAt: number | string;
+  endAt: number | string | null;
   createdBy: FirebaseFirestoreTypes.DocumentReference;
   todos: FirebaseFirestoreTypes.DocumentReference[];
 }
