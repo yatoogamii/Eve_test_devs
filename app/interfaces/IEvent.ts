@@ -9,12 +9,12 @@ export interface IEvent {
     city: string;
     place: string;
   };
-  participants: FirebaseFirestoreTypes.DocumentReference[];
+  participantsRef: FirebaseFirestoreTypes.DocumentReference[];
   needCar: boolean;
   startAt: number | string;
   endAt: number | string | null;
-  createdBy: FirebaseFirestoreTypes.DocumentReference;
-  todos: FirebaseFirestoreTypes.DocumentReference[];
+  createdByRef: FirebaseFirestoreTypes.DocumentReference;
+  todosRef: FirebaseFirestoreTypes.DocumentReference[];
 }
 
 export interface IEvents {
