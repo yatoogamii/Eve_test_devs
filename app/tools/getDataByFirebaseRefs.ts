@@ -1,5 +1,5 @@
 import {FirebaseFirestoreTypes} from '@react-native-firebase/firestore';
-import {IEvent} from 'app/interfaces/IEvent';
+import {IEvent} from 'app/interfaces/events/IEvent';
 
 export const getDataByFirebaseRefs = async (
   refs?:

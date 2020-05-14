@@ -6,7 +6,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import moment from 'moment';
 
 // interfaces
-import {IEvent, IEvents, ITodo, ITodos} from '../interfaces/IEvent';
+import {IEvent, IEvents, ITodo, ITodos} from '../interfaces/events/IEvent';
 
 // tools
 import {getDataByFirebaseRefs} from './getDataByFirebaseRefs';
