@@ -10,7 +10,7 @@ export interface IEvent {
     place: string;
   };
   participantsRef: FirebaseFirestoreTypes.DocumentReference[];
-  needCar: boolean;
+  carpooling: boolean;
   startAt: number | string;
   endAt: number | string | null;
   createdByRef: FirebaseFirestoreTypes.DocumentReference;
