@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Text } from 'react-native';
+import { Text, View, useWindowDimensions, StatusBar } from 'react-native';
 
 // interfaces
-import { IEvent, IEvents } from "./../interfaces/IEvent";
+import { IEvent, IEvents } from "../interfaces/events/IEvent";
 
 // tools
-import { sortAndGroupEventsByDate } from "./../tools/sortAndGroupEventsByDate";
+import { sortAndGroupEventsAndTodosByDate } from "./../tools/sortAndGroupEventsAndTodosByDate";
 
 // firebase
 import firestore from '@react-native-firebase/firestore';
 
+// components
+import { EventCard } from "../components/events/EventCard";
 
 export const Home = () => {
     const [allEvents, setAllEvents] = useState<IEvents | null>(null);
@@ -28,11 +30,25 @@ export const Home = () => {
                 allEvents.push(events.data());
             });
 
-            setAllEvents(sortAndGroupEventsByDate(allEvents));
+            setAllEvents(await sortAndGroupEventsAndTodosByDate(allEvents));
         } catch (error) {
             console.error(error);
         }
     };
 
-    return <Text>Hello world</Text>;
+    // testing EventCard
+    // @TODO loop into allEvents object and for each days show EventCard
+    if (allEvents !== null) {
+        return (
+            <>
+                <StatusBar barStyle="light-content" translucent={true} backgroundColor="transparent" />
+
+                <View style={{ flex: 1, backgroundColor: "#1B1B1B", paddingTop: 50 }}>
+                    <EventCard {...(allEvents!["15_05_2020"][1])} />
+                </View>
+            </>
+        )
+    } else {
+        return <Text>Aucun événement</Text>
+    }
 };

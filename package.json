@@ -15,7 +15,8 @@
     "lodash": "^4.17.15",
     "moment": "^2.25.3",
     "react": "16.11.0",
-    "react-native": "0.62.2"
+    "react-native": "0.62.2",
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -25,15 +26,22 @@
     "@types/lodash": "^4.14.150",
     "@types/react-native": "^0.62.0",
     "@types/react-test-renderer": "16.9.2",
+    "@types/styled-components": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
     "babel-jest": "^24.9.0",
+    "babel-plugin-styled-components": "^1.10.7",
     "eslint": "^6.5.1",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^2.0.4",
     "react-test-renderer": "16.11.0",
     "typescript": "^3.8.3"
+  },
+  "rnpm": {
+    "assets": [
+      "./app/assets/fonts"
+    ]
   },
   "jest": {
     "preset": "react-native",
