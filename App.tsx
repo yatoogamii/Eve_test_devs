@@ -9,7 +9,7 @@ import { Home } from "./app/views/Home";
 // Components
 import { ImageAbstract } from './app/components/abstracts/ImageAbstract';
 // Styles
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 const Tab = createBottomTabNavigator();
 
@@ -104,7 +104,7 @@ const MainTabBarContainer = styled.View`
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
 `
-const MainTabBarIconContainer = styled.TouchableOpacity`
+const MainTabBarIconContainer = styled.TouchableOpacity<any>`
   borderBottomWidth: 2px; 
   borderBottomColor: ${props => props.active ? '#00FF88' : 'white'}; 
   paddingBottom: 30px; 
