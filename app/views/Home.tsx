@@ -43,14 +43,15 @@ export const Home = () => {
         return (
             <>
                 <StatusBar barStyle="light-content" translucent={true} backgroundColor="transparent" />
-
                 <View style={{ flex: 1, backgroundColor: "#1B1B1B", paddingTop: 50 }}>
                     <TodoCard {...(allEvents!["15_05_2020"][0])} />
                     <EventCard {...(allEvents!["15_05_2020"][1])} />
                 </View>
+
             </>
         )
     } else {
         return <Text>Aucun événement</Text>
     }
+
 };
