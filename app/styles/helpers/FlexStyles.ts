@@ -12,3 +12,9 @@ export const FlexColumn = styled.View``;
 export const FlexColumnAlignCenter = styled.View`
   align-items: center;
 `;
+
+export const FlexRowJustifySpaceBetweenAlignCenter = styled(
+  FlexRowJustifySpaceBetween,
+)`
+  align-items: center;
+`;

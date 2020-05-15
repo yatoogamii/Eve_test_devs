@@ -1,5 +1,6 @@
 import {FirebaseFirestoreTypes} from '@react-native-firebase/firestore';
 import {IEvent} from 'app/interfaces/events/IEvent';
+//@TODO fix type of props with desctruturing
 
 export const getDataByFirebaseRefs = async (
   refs?:

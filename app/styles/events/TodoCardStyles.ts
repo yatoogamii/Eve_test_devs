@@ -2,29 +2,21 @@
 import styled from 'styled-components/native';
 
 // Name
-export const EventNameContainer = styled.View`
+export const TodoNameContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2px;
-  width: 110px;
+  width: 127px;
 `;
 
 // Place
-export const EventPlaceContainer = styled.View`
+export const TodoEventNameContainer = styled.View`
   margin-left: 23px;
 `;
-// CreatedBy
-export const EventCreatedByContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
-  margin-left: 20px;
-  justify-content: space-between;
-  width: 85px;
-`;
 
-// Carpooling
-export const EventCarpoolingContainer = styled.View`
+// Todo finish
+export const TodoFinishButtonContainer = styled.View`
   justify-content: center;
   background-color: #525252;
   border-radius: 50;

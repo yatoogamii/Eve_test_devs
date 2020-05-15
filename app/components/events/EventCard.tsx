@@ -9,7 +9,8 @@ import { getDataByFirebaseRefs } from "./../../tools/getDataByFirebaseRefs";
 // styles
 import { FlexColumn, FlexColumnAlignCenter, FlexRowJustifySpaceBetween } from "./../../styles/helpers/FlexStyles";
 import { TextCustom } from "./../../styles/helpers/TypoStyles";
-import { CardContainer, EventCarpoolingContainer, EventCreatedByContainer, EventPlaceContainer, EventNameContainer } from "../../styles/events/EventCardStyles";
+import { EventCarpoolingContainer, EventCreatedByContainer, EventPlaceContainer, EventNameContainer } from "./../../styles/events/EventCardStyles";
+import { CardContainer } from "./../../styles/events/CardStyles";
 // components
 import { ImageAbstract } from "../abstracts/ImageAbstract";
 
@@ -20,7 +21,7 @@ export const EventCard = ({ icon, name, startAt, endAt, carpooling, createdByRef
 
   useEffect(() => {
     getCreatedBy();
-  })
+  }, [])
 
   const getCreatedBy = async () => {
     setCreatedBy(await getDataByFirebaseRefs(createdByRef));

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, useWindowDimensions, StatusBar } from 'react-native';
 
 // interfaces
-import { IEvent, IEvents } from "../interfaces/events/IEvent";
+import { IEvent, IEvents, ITodos } from "../interfaces/events/IEvent";
 
 // tools
 import { sortAndGroupEventsAndTodosByDate } from "./../tools/sortAndGroupEventsAndTodosByDate";
@@ -11,10 +11,11 @@ import { sortAndGroupEventsAndTodosByDate } from "./../tools/sortAndGroupEventsA
 import firestore from '@react-native-firebase/firestore';
 
 // components
-import { EventCard } from "../components/events/EventCard";
+import { EventCard } from "./../components/events/EventCard";
+import { TodoCard } from './../components/events/TodoCard';
 
 export const Home = () => {
-    const [allEvents, setAllEvents] = useState<IEvents | null>(null);
+    const [allEvents, setAllEvents] = useState<IEvents & ITodos | null>(null);
 
     useEffect(() => {
         fetchData();
@@ -44,6 +45,7 @@ export const Home = () => {
                 <StatusBar barStyle="light-content" translucent={true} backgroundColor="transparent" />
 
                 <View style={{ flex: 1, backgroundColor: "#1B1B1B", paddingTop: 50 }}>
+                    <TodoCard {...(allEvents!["15_05_2020"][0])} />
                     <EventCard {...(allEvents!["15_05_2020"][1])} />
                 </View>
             </>
