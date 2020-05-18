@@ -96,7 +96,7 @@ const Title = ({ title, allEvents }: IEventsListTitle) => {
   const index = allEvents.map((e) => { return e.title; }).indexOf(title);
 
   return (
-    <FadeIn duration={1000} delay={index * 25}>
+    <FadeIn duration={300} delay={index * 100}>
       <EventsListTitleContainer>
         <TextCustom size="25" weight="Light">{capitalize(moment(title, "DD_MM_YYY").format("dddd D MMMM"))}</TextCustom>
       </EventsListTitleContainer>
@@ -107,7 +107,7 @@ const Title = ({ title, allEvents }: IEventsListTitle) => {
 const Item = ({ cardIndex, item, title, allEvents, updateTodo }: IEventsListItem) => {
   const index = allEvents.map((e) => { return e.title; }).indexOf(title) + cardIndex + 1;
   return (
-    <FadeIn duration={1000} delay={index * 50}>
+    <FadeIn duration={300} delay={index * 200}>
       {"eventId" in item ? <EventCard {...item} /> : <TodoCard {...item} updateTodo={updateTodo} />}
     </FadeIn>
   )
