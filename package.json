@@ -3,18 +3,20 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
+    "android": "npx react-native run-android",
+    "android:build": "npx react-native run-android --variant=release",
+    "ios": "npx react-native run-ios",
+    "start": "npx react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
-    "@react-native-firebase/app": "^7.0.0",
+    "@react-native-firebase/app": "^6.7.1",
     "@react-native-firebase/firestore": "^7.0.0",
     "@react-navigation/bottom-tabs": "^5.4.4",
     "@react-navigation/native": "^5.3.2",
+    "@react-navigation/stack": "^5.3.6",
     "lodash": "^4.17.15",
     "moment": "^2.25.3",
     "react": "16.11.0",
@@ -45,11 +47,6 @@
     "prettier": "^2.0.4",
     "react-test-renderer": "16.11.0",
     "typescript": "^3.8.3"
-  },
-  "rnpm": {
-    "assets": [
-      "./app/assets/fonts"
-    ]
   },
   "jest": {
     "preset": "react-native",
