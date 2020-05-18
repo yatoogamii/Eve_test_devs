@@ -14,24 +14,32 @@ import {getDataByFirebaseRefs} from './getDataByFirebaseRefs';
 export const sortAndGroupEventsAndTodosByDate = async (
   events: IEvent[],
 ): Promise<IEvents & ITodos> => {
-  const allTodos = await getAllTodos(events);
+  try {
+    const allTodos = await getAllTodos(events);
 
-  const allTodosAndEvents: Array<IEvent | ITodo> | any = [
-    ...allTodos,
-    ...events,
-  ];
+    const allTodosAndEvents: Array<IEvent | ITodo> | any = [
+      ...allTodos,
+      ...events,
+    ];
 
-  return formatUnixTimestamps(groupBy(allTodosAndEvents, getDate));
+    return formatUnixTimestamps(groupBy(allTodosAndEvents, getDate));
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const getAllTodos = async (events: IEvent[]) => {
-  const allTodos = await Promise.all(
-    cloneDeep(events).map(async (event) => {
-      return await getDataByFirebaseRefs(event.todosRef);
-    }),
-  );
+  try {
+    const allTodos = await Promise.all(
+      cloneDeep(events).map(async (event) => {
+        return await getDataByFirebaseRefs(event.todosRef);
+      }),
+    );
 
-  return allTodos.flat();
+    return allTodos.flat();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const getDate = (eventOrTodo: IEvent | ITodo) => {
