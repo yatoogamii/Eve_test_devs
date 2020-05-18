@@ -1,20 +1,11 @@
 // styled components
 import styled from 'styled-components/native';
+// interfaces
+import {IFlexStyle} from './../../interfaces/helpers/IFlexStyle';
 
-export const FlexRowJustifySpaceBetween = styled.View`
+export const FlexCustom = styled.View<IFlexStyle>`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-export const FlexColumn = styled.View``;
-
-export const FlexColumnAlignCenter = styled.View`
-  align-items: center;
-`;
-
-export const FlexRowJustifySpaceBetweenAlignCenter = styled(
-  FlexRowJustifySpaceBetween,
-)`
-  align-items: center;
+  flex-direction: ${({direction}) => direction || 'row'};
+  align-items: ${({alignItems}) => alignItems || 'flex-start'};
+  justify-content: ${({justifyContent}) => justifyContent || 'flex-start'};
 `;

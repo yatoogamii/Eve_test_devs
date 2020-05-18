@@ -1,22 +1,19 @@
 // react
 import React, { useState, useEffect } from 'react';
-import { useWindowDimensions, View, TouchableWithoutFeedback } from 'react-native';
+import { useWindowDimensions, TouchableWithoutFeedback } from 'react-native';
 // interfaces
 import { IEvent } from './../../interfaces/events/IEvent';
 import { ITodo } from './../../interfaces/events/ITodo';
-
 // tools
 import { getDataByFirebaseRefs } from './../../tools/getDataByFirebaseRefs';
 // styles
 import { CardContainer } from './../../styles/events/CardStyles';
-import { FlexRowJustifySpaceBetween, FlexColumn, FlexColumnAlignCenter, FlexRowJustifySpaceBetweenAlignCenter } from "./../../styles/helpers/FlexStyles";
+import { FlexCustom } from "./../../styles/helpers/FlexStyles";
 import { TodoNameContainer, TodoEventNameContainer, TodoFinishButtonContainer } from "./../../styles/events/TodoCardStyles";
 import { ImageAbstract } from '../abstracts/ImageAbstract';
 import { TextCustom } from './../../styles/helpers/TypoStyles';
-import { MoveOnX } from "./../../styles/animations/MoveOnX";
 
-
-export const TodoCard = ({ name, icon, eventRef, personsAssigned }: ITodo) => {
+export const TodoCard = ({ name, eventRef }: ITodo) => {
   const [event, setEvent] = useState<IEvent | null>(null);
   const [todoFinished, setTodoFinished] = useState(false);
 
@@ -35,9 +32,9 @@ export const TodoCard = ({ name, icon, eventRef, personsAssigned }: ITodo) => {
   return (
 
     <CardContainer isTodo={true} windowDimensions={useWindowDimensions().width}>
-      <FlexRowJustifySpaceBetweenAlignCenter>
+      <FlexCustom justifyContent="space-between" alignItems="center">
 
-        <FlexColumn>
+        <FlexCustom direction="column">
           <TodoNameContainer>
             <ImageAbstract width="14" height="14" source={require('./../../assets/images/icon-star.png')} />
             <TextCustom mLeft="9" color="#FFCE00" size="15">{name}</TextCustom>
@@ -47,7 +44,7 @@ export const TodoCard = ({ name, icon, eventRef, personsAssigned }: ITodo) => {
             <TextCustom mRight="5" size="9" color="#C4C4C4">●</TextCustom>
             <TextCustom mLeft="4" color="#C4C4C4" size="11">Pour {event?.name}</TextCustom>
           </TodoEventNameContainer>
-        </FlexColumn>
+        </FlexCustom>
 
         <TouchableWithoutFeedback onPress={() => setTodoFinished(true)}>
           <TodoFinishButtonContainer>
@@ -55,7 +52,7 @@ export const TodoCard = ({ name, icon, eventRef, personsAssigned }: ITodo) => {
           </TodoFinishButtonContainer>
         </TouchableWithoutFeedback>
 
-      </FlexRowJustifySpaceBetweenAlignCenter>
+      </FlexCustom>
     </CardContainer >
 
   )

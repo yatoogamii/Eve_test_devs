@@ -1,6 +1,6 @@
 // react
-import React, { useState, useEffect, useRef } from "react";
-import { useWindowDimensions, Animated } from "react-native";
+import React, { useState, useEffect } from "react";
+import { useWindowDimensions } from "react-native";
 // interfaces
 import { IEvent } from "../../interfaces/events/IEvent";
 import { IUser } from "../../interfaces/users/IUser";
@@ -8,12 +8,10 @@ import { IUser } from "../../interfaces/users/IUser";
 import { getDataByFirebaseRefs } from "./../../tools/getDataByFirebaseRefs";
 import { getCardIcon } from './../../tools/getCardIcon';
 // styles
-import { FlexColumn, FlexColumnAlignCenter, FlexRowJustifySpaceBetween } from "./../../styles/helpers/FlexStyles";
+import { FlexCustom } from "./../../styles/helpers/FlexStyles";
 import { TextCustom } from "./../../styles/helpers/TypoStyles";
 import { EventCarpoolingContainer, EventCreatedByContainer, EventPlaceContainer, EventNameContainer } from "./../../styles/events/EventCardStyles";
 import { CardContainer } from "./../../styles/events/CardStyles";
-import { MoveOnX } from "./../../styles/animations/MoveOnX";
-
 // components
 import { ImageAbstract } from "../abstracts/ImageAbstract";
 
@@ -36,35 +34,32 @@ export const EventCard = ({ icon, name, startAt, endAt, carpooling, createdByRef
 
   return (
     <CardContainer windowDimensions={useWindowDimensions().width}>
-      <FlexRowJustifySpaceBetween>
-        <FlexColumn>
+      <FlexCustom direction="row" justifyContent="space-between">
+
+        <FlexCustom direction="column">
 
           <EventNameContainer>
             <ImageAbstract width="14" height="14" source={cardIcon} />
             <TextCustom mLeft="9" color="#FFCE00" size="15">{name}</TextCustom>
           </EventNameContainer>
 
-          {/* part place */}
           <EventPlaceContainer>
             <TextCustom color="#C4C4C4" size="11" >{place}</TextCustom>
             <TextCustom mLeft="7" mRight="7" size="10" color="#C4C4C4">●</TextCustom>
             <TextCustom color="#C4C4C4" size="11">{city}</TextCustom>
           </EventPlaceContainer>
-          {/* part place */}
 
-        </FlexColumn>
+        </FlexCustom>
 
-        {/* part hours */}
-        <FlexColumnAlignCenter>
+        <FlexCustom direction="column" alignItems="center" >
           <TextCustom color="#D8D8D8" size="16">{startAt}</TextCustom>
           {endAt && <TextCustom color="#C4C4C4"> - {endAt}</TextCustom>}
-        </FlexColumnAlignCenter>
-        {/* part hours */}
+        </FlexCustom>
 
-      </FlexRowJustifySpaceBetween>
-      <FlexRowJustifySpaceBetween>
+      </FlexCustom>
 
-        {/* part createdBy */}
+      <FlexCustom direction="row" justifyContent="space-between">
+
         {createdBy && (
           <EventCreatedByContainer>
             <ImageAbstract width="24" height="24" radius="50" source={{ uri: createdBy?.profilePicture }} />
@@ -72,15 +67,12 @@ export const EventCard = ({ icon, name, startAt, endAt, carpooling, createdByRef
           </EventCreatedByContainer>
         )}
 
-        {/* part createdBy */}
-
-        {/* part carpooling */}
         {carpooling && <EventCarpoolingContainer>
           <ImageAbstract width="18" height="10" radius="50" source={require('./../../assets/images/icon-car.png')} />
         </EventCarpoolingContainer>}
-        {/* part carpooling */}
 
-      </FlexRowJustifySpaceBetween>
+      </FlexCustom>
+
     </CardContainer>
   )
 }
