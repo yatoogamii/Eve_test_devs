@@ -13,7 +13,7 @@ import { TodoNameContainer, TodoEventNameContainer, TodoFinishButtonContainer } 
 import { ImageAbstract } from '../abstracts/ImageAbstract';
 import { TextCustom } from './../../styles/helpers/TypoStyles';
 
-export const TodoCard = ({ name, eventRef }: ITodo) => {
+export const TodoCard = ({ name, eventRef, todoId, updateTodo }: ITodo) => {
   const [event, setEvent] = useState<IEvent | null>(null);
   const [todoFinished, setTodoFinished] = useState(false);
 
@@ -46,9 +46,9 @@ export const TodoCard = ({ name, eventRef }: ITodo) => {
           </TodoEventNameContainer>
         </FlexCustom>
 
-        <TouchableWithoutFeedback onPress={() => setTodoFinished(true)}>
+        <TouchableWithoutFeedback onPress={() => updateTodo(todoId)}>
           <TodoFinishButtonContainer>
-            {todoFinished && <ImageAbstract width="18" height="10" radius="50" source={{ uri: "https://firebasestorage.googleapis.com/v0/b/eve-test-devs.appspot.com/o/global%2Ficon-correct.png?alt=media&token=71b6c9d9-2f66-4f04-a608-b49bcda531fc" }} />}
+            {todoFinished && <ImageAbstract width='13' height="13" source={require('./../../assets/images/icon-check.png')} />}
           </TodoFinishButtonContainer>
         </TouchableWithoutFeedback>
 
