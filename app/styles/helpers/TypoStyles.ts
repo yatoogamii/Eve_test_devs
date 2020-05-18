@@ -1,7 +1,10 @@
 // styled components
 import styled from 'styled-components/native';
+// interfaces
+import {ITypoStyle} from './../../interfaces/helpers/ITypoStyles';
+import {IMarginAndPaddingStyle} from './../../interfaces/helpers/IMarginAndPaddingStyles';
 
-export const TextCustom = styled.Text<any>`
+export const TextCustom = styled.Text<ITypoStyle & IMarginAndPaddingStyle>`
   color: ${({color}) => color || 'white'};
   font-size: ${({size}) => size || '12'}px;
   font-family: ${({weight}) =>

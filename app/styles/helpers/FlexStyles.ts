@@ -1,7 +1,7 @@
 // styled components
 import styled from 'styled-components/native';
 // interfaces
-import {IFlexStyle} from './../../interfaces/helpers/IFlexStyle';
+import {IFlexStyle} from '../../interfaces/helpers/IFlexStyles';
 
 export const FlexCustom = styled.View<IFlexStyle>`
   display: flex;
