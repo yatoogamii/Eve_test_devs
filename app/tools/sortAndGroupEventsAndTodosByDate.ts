@@ -6,14 +6,15 @@ import cloneDeep from 'lodash/cloneDeep';
 import moment from 'moment';
 
 // interfaces
-import {IEvent, IEvents, ITodo, ITodos} from '../interfaces/events/IEvent';
+import {IEvent, IEvents} from '../interfaces/events/IEvent';
+import {ITodo, ITodos} from '../interfaces/events/ITodo';
 
 // tools
 import {getDataByFirebaseRefs} from './getDataByFirebaseRefs';
 
 export const sortAndGroupEventsAndTodosByDate = async (
   events: IEvent[],
-): Promise<IEvents & ITodos> => {
+): Promise<(IEvents & ITodos) | undefined> => {
   try {
     const allTodos = await getAllTodos(events);
 

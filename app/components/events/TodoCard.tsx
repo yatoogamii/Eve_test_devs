@@ -2,7 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { useWindowDimensions, View, TouchableWithoutFeedback } from 'react-native';
 // interfaces
-import { ITodo, IEvent } from './../../interfaces/events/IEvent';
+import { IEvent } from './../../interfaces/events/IEvent';
+import { ITodo } from './../../interfaces/events/ITodo';
+
 // tools
 import { getDataByFirebaseRefs } from './../../tools/getDataByFirebaseRefs';
 // styles

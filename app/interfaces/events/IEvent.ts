@@ -20,20 +20,3 @@ export interface IEvent {
 export interface IEvents {
   [key: string]: IEvent[];
 }
-
-export interface ITodo {
-  todoId: string;
-  eventRef: FirebaseFirestoreTypes.DocumentReference;
-  icon: string;
-  name: string;
-  personsAssigned: {
-    finished: boolean;
-    userRef: FirebaseFirestoreTypes.DocumentReference;
-  }[];
-  startAt: number | string;
-  endAt: number | string | null;
-}
-
-export interface ITodos {
-  [key: string]: ITodo[];
-}

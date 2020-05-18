@@ -6,7 +6,8 @@ import moment, { relativeTimeRounding } from 'moment';
 // firebase
 import firestore from '@react-native-firebase/firestore';
 // interfaces
-import { IEvent, ITodo } from './../../interfaces/events/IEvent';
+import { IEvent } from './../../interfaces/events/IEvent';
+import { ITodo } from './../../interfaces/events/ITodo';
 // tools
 import { sortAndGroupEventsAndTodosByDate } from './../../tools/sortAndGroupEventsAndTodosByDate';
 import { capitalize } from './../../tools/capitalize';
@@ -39,7 +40,7 @@ export const EventsList = () => {
 
       const objectOfAllEvents = await sortAndGroupEventsAndTodosByDate(allEvents);
 
-      const formatedArrayOfAllEvents = Object.entries(objectOfAllEvents).sort((a, b) => a[0].localeCompare(b[0])).map((value) => {
+      const formatedArrayOfAllEvents = Object.entries(objectOfAllEvents!).sort((a, b) => a[0].localeCompare(b[0])).map((value) => {
         return {
           title: value[0],
           data: value[1]
