@@ -5,13 +5,13 @@ import styled from 'styled-components/native';
 export const TodoNameContainer = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 2px;
-  width: 127px;
 `;
 
 // Place
 export const TodoEventNameContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
   margin-left: 23px;
 `;
 

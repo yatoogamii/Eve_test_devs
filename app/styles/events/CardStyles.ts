@@ -6,7 +6,7 @@ export const CardContainer = styled.View<{
   windowDimensions: number;
   isTodo?: boolean;
 }>`
-  width: ${(props) => props.windowDimensions - 32 + 'px'};
+  width: ${(props) => props.windowDimensions - 32}px;
   height: ${(props) => (props.isTodo ? '72' : '104')}px;
   margin: 0 auto;
   background-color: #2b2b2b;

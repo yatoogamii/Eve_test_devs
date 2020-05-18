@@ -5,13 +5,12 @@ import styled from 'styled-components/native';
 export const EventNameContainer = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2px;
-  width: 110px;
 `;
 
 // Place
 export const EventPlaceContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
   margin-left: 23px;
 `;
 // CreatedBy
@@ -19,8 +18,7 @@ export const EventCreatedByContainer = styled.View`
   flex-direction: row;
   align-items: center;
   margin-left: 20px;
-  justify-content: space-between;
-  width: 85px;
+  margin-top: 8px;
 `;
 
 // Carpooling
